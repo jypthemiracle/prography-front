@@ -1,91 +1,97 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import axios from 'axios';
-
-function TodoForm({addTodo}) {
-  const [value, setValue] = useState("");
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (!value) return;
-    addTodo(value);
-    setValue("");
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <div className="todo">
-      <input type="text" className="input" value={value} onChange={e => setValue(e.target.value)}></input>
-      </div>
-    </form>
-  )
-}
+import axios from "axios";
+import uuid from "uuid";
 
 function Todo({todo, id, completeTodo, removeTodo}) {
   return (
-    <div className="todo" style={{textDecoration: todo.status? "line-through": ""}}>
-      {todo.title}
+    <div
+      className="todo"
+      style={{ textDecoration: todo.status ? "line-through" : ""}}
+    >
+      {todo.text}
       <div>
         <button onClick={() => completeTodo(id)}>Complete</button>
-        <button onClick={() => removeTodo(id)}>Delete</button>
+        <button onClick={() => removeTodo(id)}>x</button>
       </div>
     </div>
   )
 }
 
-function App() {
-  const [todos, setTodos] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+function TodoForm({addTodo}){
+  const [value, setValue] = useState("");
+  const handleSubmit = e => {
+    e.preventDefault();
+    if(!value) return;
+    addTodo(value);
+    setValue("");
+  };
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="input"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+    </form>
+  );
+}
 
+function App(){
+  const [state, setState] = useState({
+    todos:[]
+  });
+
+  //fetch API data
+  const getData = () => {
+    axios
+    .get("https://killsanghyuck.github.io/prography_5th_front/todoDummy.json")
+    .then(res => setState({todos:res.data.body}));
+  };
   useEffect(() => {
-      (async function() {
-          setIsLoading(true);
-          try {
-              const response = await axios('https://killsanghyuck.github.io/prography_5th_front/todoDummy.json')
-              setTodos(response.data);
-          } catch (e) {
-              console.error(e);
-          }
-          setIsLoading(false);
-      })();
+    getData();
   }, []);
 
+  //Adding todo list
   const addTodo = title => {
-    const newTodos = [...todos, { title }];
-    setTodos(newTodos);
+    const newTodos = [...state, {
+      title,
+      id: uuid.v4(),
+      status: "todo"
+    }];
+    setState(newTodos);
   };
 
-  const completeTodo = id => {
-    const newTodos = [...todos];
-    newTodos[id].status = "complete";
-    setTodos(newTodos);
-  }
-
+  //removing todo list
   const removeTodo = id => {
-    const newTodos = [...todos];
+    const newTodos = [...state];
     newTodos.splice(id, 1);
-    setTodos(newTodos);
-  }
-  
+    setState(newTodos);
+  };
+
+  //completing todo list
+  const completeTodo = id => {
+    const newTodos = [...state];
+    newTodos[id].status = "complete";
+    setState(newTodos);
+  };
+
   return (
-    <div className="App">
-      {isLoading ? (
-        <div>Loading ...</div>
-      ) : (
+    <div className="app">
       <div className="todo-list">
-        {todos.map((todo, id) => (
+        {state.map((todo, index) => (
           <Todo
-            key={id}
-            index={id}
+            key={index}
+            index={index}
             todo={todo}
             completeTodo={completeTodo}
             removeTodo={removeTodo}
           />
         ))}
         <TodoForm addTodo={addTodo} />
-      </div>      
-      )}
+      </div>
     </div>
   );
 }
-
 export default App;
