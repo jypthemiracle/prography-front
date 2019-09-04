@@ -1,10 +1,10 @@
-## 사전과제 회고
+## 5기 리액트 사전과제 회고
 1. state.map function이 정의되지 않는 에러(시점을 맞추지 못함)로 인하여 완전체는 아닙니다.
 2. 리액트를 처음으로 공부하는 입장에서 어려운 과제였지만, 좋은 경험이 되었습니다.
 
 ## Todo 앱 제작에 참고한 자료
 
-다음의 튜토리얼과 학습 가이드를 참고하 제작하였습니다.
+다음의 튜토리얼과 학습 가이드를 참고하여 제작하였습니다.
 
 https://scotch.io/tutorials/build-a-react-to-do-app-with-react-hooks-no-class-components
 
