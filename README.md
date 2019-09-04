@@ -12,7 +12,7 @@ https://www.robinwieruch.de/react-hooks-fetch-data/
 
 https://dev.to/rodeghiero_/json-server-with-reactjs-3chd
 
-## React Hooks 학습에 참고한 자료
+## React Hooks 학습에 참고한 자료 (코드스쿼드)
 
 1. [[React hooks 이해] #1편. useState, useEffect](https://www.youtube.com/watch?v=y52Av3JxNW4)
 2. [[React hooks 이해] #2편. Fetching data와 Custom hooks](https://www.youtube.com/watch?v=vKllPC06al0)
