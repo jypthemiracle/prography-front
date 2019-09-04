@@ -38,24 +38,28 @@ function Todo({todo, id, completeTodo, removeTodo}) {
   )
 }
 
-function App() {
+function TodoListFunction() {
   const [todos, setTodos] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-      (async function() {
-          setIsLoading(true);
-          try {
-              const response = await axios.get(
-                  'https://killsanghyuck.github.io/prography_5th_front/todoDummy.json'
-                );
-              setTodos(response.data);
-          } catch (e) {
-              console.error(e);
-          }
+        fetch("https://killsanghyuck.github.io/prography_5th_front/todoDummy.json")
+        .then(response => response.json())
+        .then(todos => {
+          setTodos(todos);
           setIsLoading(false);
-      })();
-  }, []);
+        });
+      });
+
+      if (loading) return <div>Loading...</div>;
+      return (
+        <ul>
+        {todos.map(todolist => (
+          <li key={todolist.id}>{todolist.title}</li>
+          ))}
+        </ul>
+      );
+    }
 
   const addTodo = title => {
     const newTodos = [...todos, { title }];
@@ -79,7 +83,7 @@ function App() {
       {isLoading ? (
         <div>Loading ...</div>
       ) : (
-      <div className="todo-list">
+      <div className="todolist">
         {todos.map((todo, id) => (
           <Todo
             index={id}
