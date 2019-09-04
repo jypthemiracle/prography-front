@@ -1,6 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 5기 리액트 사전과제 회고
+- 리액트를 처음으로 공부하는 입장에서 어려운 과제였지만, 좋은 경험이 되었습니다.
 
-This is a sample todo project created using React Hooks concept. I followed the following links to create this sample project.
+## Todo 앱 제작에 참고한 자료
+
+다음의 튜토리얼과 학습 가이드를 참고하여 제작하였습니다.
 
 https://scotch.io/tutorials/build-a-react-to-do-app-with-react-hooks-no-class-components
 
@@ -8,45 +11,11 @@ https://www.robinwieruch.de/react-hooks-fetch-data/
 
 https://dev.to/rodeghiero_/json-server-with-reactjs-3chd
 
-## Available Scripts
+## React Hooks 학습에 참고한 자료 (코드스쿼드)
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. [[React hooks 이해] #1편. useState, useEffect](https://www.youtube.com/watch?v=y52Av3JxNW4)
+2. [[React hooks 이해] #2편. Fetching data와 Custom hooks](https://www.youtube.com/watch?v=vKllPC06al0)
+3. [[React hooks 이해] #3편. 컴포넌트 간의 state 전달](https://www.youtube.com/watch?v=Kk64DamLyHs)
+4. [[React hooks 이해] #4편. Context API와 useContext](https://www.youtube.com/watch?v=NHYC-KIri34)
+5. [[React hooks 이해] #5편. 초간단 useRef](https://www.youtube.com/watch?v=UfCxCaqwPEM)
+6. [[React hooks 이해] #6편. useReducer 와 상태관리](https://www.youtube.com/watch?v=UU3jjRwjayg)
